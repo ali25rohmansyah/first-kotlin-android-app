@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtScore: TextView
     private lateinit var txtTime: TextView
 
+    private var score = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,5 +20,14 @@ class MainActivity : AppCompatActivity() {
         btnTap = findViewById(R.id.btn_tap)
         txtScore = findViewById(R.id.txt_score)
         txtTime = findViewById(R.id.txt_time)
+
+        txtScore.text = getString(R.string.txt_score, score)
+        btnTap.setOnClickListener { incrementScore() }
+    }
+
+    private fun incrementScore() {
+        score += 1
+        val newScore = getString(R.string.txt_score, score)
+        txtScore.text =  newScore
     }
 }
