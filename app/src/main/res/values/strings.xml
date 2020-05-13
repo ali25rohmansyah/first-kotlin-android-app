@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">first_kotlin_android_app</string>
+    <string name="app_name">Time Fighter</string>
     <string name="txt_time">TIme Left : %1$d</string>
     <string name="txt_score">Your Score : %1$d</string>
     <string name="btn_tap">Tap Me</string>
     <string name="gameOverMsg">Times up your score was: %1$d</string>
+
+    <string name="aboutTitle">Time Fighter</string>
+    <string name="aboutMessage">Created by ra_project </string>
 </resources>
