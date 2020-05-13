@@ -7,22 +7,22 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txt_score_title"
+        android:id="@+id/txt_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="26dp"
-        android:text="Your Score : 0"
+        android:text="Your Score : %1$d"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_time_title"
+        android:id="@+id/txt_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="12dp"
-        android:text="Your Time : 60"
+        android:text="TIme Left : %1$d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
