@@ -34,7 +34,14 @@ class MainActivity : AppCompatActivity() {
         txtTime = findViewById(R.id.txt_time)
 
         btnTap.setOnClickListener { incrementScore() }
-        resetGame()
+
+        if(savedInstanceState != null){
+            score =  savedInstanceState.getInt(SCORE_KEY)
+            timeLeftOnTimer = savedInstanceState.getLong(TIME_LEFT_KEY)
+            restoreGame()
+        }else{
+            resetGame()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -79,6 +86,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
         isGameStarted = false
+    }
+
+    private fun restoreGame(){
+        txtScore.text = getString(R.string.txt_score, score)
+
+        val restoredTime = timeLeftOnTimer / 1000
+        txtTime.text = getString(R.string.txt_time, restoredTime)
+
+        countDownTimer = object : CountDownTimer(timeLeftOnTimer, countDownInterval){
+            override fun onTick(millisUntilFinished: Long) {
+                timeLeftOnTimer = millisUntilFinished
+                val timeLeft = millisUntilFinished / 1000
+                txtTime.text = getString(R.string.txt_time, timeLeft)
+            }
+
+            override fun onFinish() {
+                endGame()
+            }
+        }
+        countDownTimer.start()
+        isGameStarted = true
     }
 
     private fun startGame(){
